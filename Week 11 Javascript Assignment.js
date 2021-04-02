@@ -1,30 +1,13 @@
-$(function () {
-        var $NewTaskButton = $('NewTaskButton');
-        var $NewTaskForm = $('NewTaskForm');
-        var $textInput = $('input:text');
+var list, addlink;
 
+list = document.getElementById('tasks')
 
-        $NewTaskButton.show();
-        $NewTaskForm.hide();
+function changeText2() {
+    var list = document.getElementById('entry').value;
+    document.getElementById('entry').innerHTML = task;
+    var entry = document.createElement('li');
+    entry.appendChild(document.createTextNode(task));
+    list.appendChild(entry);
+}
 
-
-        $('#displaytask').on('click', function () {
-            $NewTaskButton.hide();
-            $NewTaskButton.show();
-        });
-
-
-
-        $NewTaskForm.on('submit', function(e){
-                e.preventDefault();
-                var newText = $textInput.val();
-                $('list_item').after('<li>' + newText + '</li>');
-                $NewTaskForm.hide();
-                $NewTaskButton.show();
-                $textInput.val('');
-            });
-
-            
-
-
-    });
+addlink.addEventListener('click', addItem, false);
